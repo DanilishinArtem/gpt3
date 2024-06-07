@@ -1,0 +1,18 @@
+[1] link for download model: https://huggingface.co/EleutherAI/gpt-neo-1.3B/tree/main
+[2] description: https://huggingface.co/docs/transformers/v4.41.3/en/model_doc/gpt_neo#transformers.GPTNeoForSequenceClassification
+
+
+Data loading:
+
+pip install kaggle
+
+kaggle datasets download -d utathya/imdb-review-dataset
+unzip imdb-review-dataset.zip -d imdb-dataset
+
+
+
+
+basic links:
+[1] https://huggingface.co/docs/transformers/v4.41.3/en/model_doc/gpt_neo#transformers.GPTNeoForSequenceClassification
+[2] https://huggingface.co/docs/transformers/v4.41.3/en/tasks/sequence_classification
+[3] https://huggingface.co/docs/transformers/v4.41.3/en/tasks/language_modeling
