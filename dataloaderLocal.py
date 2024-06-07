@@ -46,10 +46,10 @@ class Dataset:
         train_file = config.path
         df = pd.read_csv(train_file, encoding='ISO-8859-1')
         train_df, test_df = train_test_split(df, test_size=0.2, random_state=42)
-        tokenizer = AutoTokenizer.from_pretrained("gpt-neo-1.3B")
-        tokenizer.pad_token = tokenizer.eos_token
-        train_dataset = IMDbDataset(train_df, tokenizer, max_len=256)
-        test_dataset = IMDbDataset(test_df, tokenizer, max_len=256)
+        self.tokenizer = AutoTokenizer.from_pretrained("gpt-neo-1.3B")
+        self.tokenizer.pad_token = self.tokenizer.eos_token
+        train_dataset = IMDbDataset(train_df, self.tokenizer, max_len=256)
+        test_dataset = IMDbDataset(test_df, self.tokenizer, max_len=256)
 
         self.train_loader = DataLoader(train_dataset, batch_size=config.batch_size, shuffle=True)
         self.test_loader = DataLoader(test_dataset, batch_size=config.batch_size)
