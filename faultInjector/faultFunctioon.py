@@ -31,11 +31,13 @@ class FaultFunction:
         faultsN = config.faults[str(input.device)]["faultsN"]
         random_indices = torch.randint(0, input.numel(), (faultsN,))
         random_positions = torch.unravel_index(random_indices, input.shape)
-        print("changing tensor")
-        print(input[random_positions])
-        input[random_positions] = 0
-        print("to tensor")
-        print(input[random_positions])
+        if config.info:
+            print("changing tensor")
+            print(input[random_positions])
+            input[random_positions] = 0
+        if config.info:
+            print("to tensor")
+            print(input[random_positions])
 
     @staticmethod
     def valueFunction(input: torch.tensor):
@@ -43,11 +45,13 @@ class FaultFunction:
         faultsN = config.faults[str(input.device)]["faultsN"]
         random_indices = torch.randint(0, input.numel(), (faultsN,))
         random_positions = torch.unravel_index(random_indices, input.shape)
-        print("changing tensor")
-        print(input[random_positions])
+        if config.info:
+            print("changing tensor")
+            print(input[random_positions])
         input[random_positions] = faultValue
-        print("to tensor")
-        print(input[random_positions])
+        if config.info:
+            print("to tensor")
+            print(input[random_positions])
 
     @staticmethod
     def magnitudeFunction(input: torch.tensor):
@@ -55,8 +59,10 @@ class FaultFunction:
         faultsN = config.faults[str(input.device)]["faultsN"]
         random_indices = torch.randint(0, input.numel(), (faultsN,))
         random_positions = torch.unravel_index(random_indices, input.shape)
-        print("changing tensor")
-        print(input[random_positions])
+        if config.info:
+            print("changing tensor")
+            print(input[random_positions])
         input[random_positions] = input[random_positions] * faultValue
-        print("to tensor")
-        print(input[random_positions])
+        if config.info:
+            print("to tensor")
+            print(input[random_positions])

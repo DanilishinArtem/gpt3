@@ -34,7 +34,7 @@ class WeightHook:
             if self.counter >= temp["stepN"] and self.duration <= temp["duration"] and self.name in temp["nameOfLayers"]:
                 self.duration += 1
                 print("fault (weight) for layer " + self.name + " was injected at time " + str(self.counter))
-                module.weight = torch.nn.Parameter(functionSetter("valueFunction", (module.weight,)))
+                module.weight.data = torch.nn.Parameter(functionSetter("valueFunction", (module.weight.data,)))
 
 
 class GradientHook:
