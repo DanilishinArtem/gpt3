@@ -1,0 +1,4 @@
+gpt-neo-1.3B/*.safetensors
+gpt-neo-1.3B/*.bin
+__pycache__
+tensorboard
